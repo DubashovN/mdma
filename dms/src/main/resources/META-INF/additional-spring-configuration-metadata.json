@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "data-masking.access.version",
+      "type": "java.lang.String",
+      "description": "Version of data-masking plan for DMS."
+    },
+    {
+      "name": "project.version",
+      "type": "java.lang.String",
+      "description": "Project.version."
+    },
+    {
+      "name": "project.name",
+      "type": "java.lang.String",
+      "description": "Project.name."
+    }
+  ]
+}

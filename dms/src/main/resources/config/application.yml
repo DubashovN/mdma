@@ -1,0 +1,44 @@
+project:
+  name: '@project.name@'
+  version: '@project.version@'
+
+# Logging settings
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    ROOT: INFO
+    ru.filit.mdma: DEBUG
+    org.springframework.web: ERROR
+
+# Server configuration
+server:
+  port: 8081
+  servlet:
+    context-path: /dm
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    register-default-servlet: true
+  error:
+    include-message: always
+
+data-masking:
+  access:
+    version: "3"
+
+ignite:
+  igniteInstanceName: igniteInstance
+  communicationSpi:
+    localPort: 5555
+  dataStorageConfiguration:
+    defaultDataRegionConfiguration:
+      initialSize: 10485760 #10MB
+    dataRegionConfigurations:
+      - name: dataregion
+        initialSize: 104857600 #100MB
+
+audit:
+  kafka:
+    topic-name: "dm-audit"

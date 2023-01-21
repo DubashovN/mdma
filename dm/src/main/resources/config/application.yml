@@ -1,0 +1,29 @@
+project:
+  name: '@project.name@'
+  version: '@project.version@'
+
+# Logging settings
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    ROOT: INFO
+    ru.filit.mdma: DEBUG
+    org.springframework.web: ERROR
+
+# Server configuration
+server:
+  port: 8082
+  servlet:
+    context-path: /dm
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    register-default-servlet: true
+  error:
+    include-message: always
+
+dm:
+  repo:
+    location: datafiles

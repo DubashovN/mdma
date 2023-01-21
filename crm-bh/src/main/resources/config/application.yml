@@ -1,0 +1,31 @@
+project:
+  name: '@project.name@'
+  version: '@project.version@'
+
+# Logging settings
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    ROOT: INFO
+    ru.filit.mdma: DEBUG
+    org.springframework.web: ERROR
+
+# Server configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    register-default-servlet: true
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+dm:
+  last-operations:
+    quantity: 3

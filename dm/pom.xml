@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dm</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>Data Management</name>
+
+    <parent>
+        <groupId>ru.filit.mdma</groupId>
+        <artifactId>mdma-root</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <properties>
+        <validator.version>1.7</validator.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>${validator.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>5.3.0</version>
+                    <configuration>
+                        <generatorName>spring</generatorName>
+                        <generateApis>false</generateApis>
+                        <generateApiDocumentation>false</generateApiDocumentation>
+                        <generateApiTests>false</generateApiTests>
+                        <generateModels>false</generateModels>
+                        <generateModelDocumentation>false</generateModelDocumentation>
+                        <generateModelTests>false</generateModelTests>
+                        <generateSupportingFiles>false</generateSupportingFiles>
+                        <configOptions>
+                            <delegatePattern>false</delegatePattern>
+                            <interfaceOnly>true</interfaceOnly>
+                            <java8>false</java8>
+                            <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                            <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                            <useBeanValidation>true</useBeanValidation>
+                            <serializableModel>true</serializableModel>
+                        </configOptions>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>5.3.0</version>
+                <executions>
+                    <!-- DM App -->
+                    <execution>
+                        <id>dm-oas</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/oas/dm.yml
+                            </inputSpec>
+                            <generatorName>spring</generatorName>
+                            <generateApis>true</generateApis>
+                            <generateModels>true</generateModels>
+                            <apiPackage>ru.filit.mdma.web.controller</apiPackage>
+                            <modelPackage>ru.filit.mdma.web.dto</modelPackage>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>dm-entity-oas</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/oas/dm-entity.yml
+                            </inputSpec>
+                            <generatorName>spring</generatorName>
+                            <generateModels>true</generateModels>
+                            <modelPackage>ru.filit.mdma.model.entity</modelPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

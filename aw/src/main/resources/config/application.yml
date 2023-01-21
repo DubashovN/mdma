@@ -1,0 +1,12 @@
+audit:
+  kafka:
+    group-id: "dm-aw"
+    topic-name: "dm-audit"
+
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+
+server:
+  port: 9090

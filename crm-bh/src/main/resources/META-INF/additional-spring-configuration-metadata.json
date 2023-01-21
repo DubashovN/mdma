@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "project.name",
+      "type": "java.lang.String",
+      "description": "Name of the project."
+    },
+    {
+      "name": "project.version",
+      "type": "java.lang.String",
+      "description": "Version of the project."
+    },
+    {
+      "name": "dm.last-operations.quantity",
+      "type": "java.lang.String",
+      "description": "quantity of last operation from dm app (default=3)."
+    }
+  ]
+}

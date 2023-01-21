@@ -1,0 +1,16 @@
+*.idea
+*.iws
+*.iml
+/target
+*.ipr
+
+*.log
+
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+.gradle
+**/build/
+!src/**/build/
+gradle/wrapper/
